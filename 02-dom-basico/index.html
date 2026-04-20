@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Practica 2 - DOM</title>
+</head>
+    <body>
+        <div id="app">
+            <div class="info-estudiante">
+                <h2>Información del Estudiante</h2>
+                <p><strong>Nombre: </strong><span id="estudiante-nombre"></span></p>
+                <p><strong>Carrera: </strong><span id="estudiante-carrera"></span></p>
+                <p><strong>Semestre: </strong><span id="estudiante-semestre"></span></p>
+            </div>
+            <div class="estadisticas">
+                <h2>Estadisticas</h2>
+                <p><strong>Total: </strong><span id="estadisticas-total"></span></p>
+                <p><strong>Activos: </strong><span id="estadisticas-activos"></span></p>
+            </div>
+            <div class="filtros">
+                <button class="btn-filtro btn-filtro-activo" data-categoria="todas">Todas</button>
+                <button class="btn-filtro" data-categoria="Trabajo">Trabajo</button>
+                <button class="btn-filtro" data-categoria="Personal">Personal</button>
+                <button class="btn-filtro" data-categoria="Estudio">Estudio</button>
+            </div>
+            <div class="contenedor-lista"> 
+            </div>
+        </div>
+    <!-- Sin defer ya que esta ubicado al final de body-->
+    <script src="js/app.js"> </script>
+    </body>
+</html>
