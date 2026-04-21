@@ -117,16 +117,16 @@ function actualizarContadorTareas() {
 ## 3. Capturas de la Aplicación
 
 ### Validación en acción
-![Validación](./assets/01-validacion.jpg)
+![Validación](./assets/01-validacion.jpeg)
 
 ### Formulario procesado
-![Formulario](./assets/02-formulario.jpg)
+![Formulario](./assets/02-formulario.jpeg)
 
 ### Event delegation funcionando
-![Agregar tareas](./assets/03-agregar-tareas.jpg)
+![Agregar tareas](./assets/03-agregar-tareas.jpeg)
 
 ### Contador de tareas actualizado
-![Delegación](./assets/04-delgacion.jpg)
+![Delegación](./assets/04-delgacion.jpeg)
 
 ### Tareas completadas
-![Eliminar](./assets/05-eliminar.jpg)
+![Eliminar](./assets/05-eliminar.jpeg)
