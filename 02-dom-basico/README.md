@@ -104,7 +104,7 @@ function actualizarEstadisticas() {
 ## 3. Imágenes de la Aplicación
 
 ### Vista general de la aplicación
-![Vista General](./assets/general.png)
+![Vista General](./assets/general.jpeg)
 
 ### Filtrado aplicado
-![Filtrado](./assets/filtrado.png)
+![Filtrado](./assets/filtrado.jpeg)
