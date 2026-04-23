@@ -132,25 +132,25 @@ En las pruebas realizadas, la carga secuencial tomó aproximadamente 2.63s mient
 ## 4. Capturas de la Aplicación
 
 ### 1. Estructura del proyecto
-![Estructura](./assets/01-estructura.jpeg)
+![Estructura](./assets/01_estructura.jpeg)
 
 ### 2. Carga secuencial
-![Carga Secuencial](./assets/02-carga_secuencial.jpeg)
+![Carga Secuencial](./assets/02_carga_secuencial.jpeg)
 
 ### 3. Carga paralela
-![Carga Paralela](./assets/03-carga_paralelo.jpeg)
+![Carga Paralela](./assets/03_carga_paralelo.jpeg)
 
 ### 4. Comparativa de tiempos
-![Comparativa](./assets/04-comparativa.jpeg)
+![Comparativa](./assets/04_comparativa.jpeg)
 
 ### 5. Temporizador funcionando
-![Temporizador](./assets/05-temporizador.jpeg)
+![Temporizador](./assets/05_temporizador.jpeg)
 
 ### 6. Manejo de errores
-![Errores](./assets/06-errores.jpeg)
+![Errores](./assets/06_errores.jpeg)
 
 ### 7. Consola limpia
-![Consola](./assets/07-consola_limpia.jpeg)
+![Consola](./assets/07_consola_limpia.jpeg)
 
 ### 8. Funciones async/await y Promise.all
-![Funciones](./assets/08-funciones_promise.jpeg)
+![Funciones](./assets/08_funciones_promise.jpeg)
