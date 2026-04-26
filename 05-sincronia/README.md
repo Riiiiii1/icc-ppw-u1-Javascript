@@ -1,25 +1,13 @@
- #                        v    v      v   v     P   r  x   ác   tica    
-zz   x        v  
-   x0 
-   5     x    x         -                    x           x          Asincronía en JavaSc xr ipxt
+# Práctica 05 - Asincronía en JavaScript
 
 ## Información del Estudiante
-       
 
-- - xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                  v-  v
-   
-##    
-x 1xxxxx . D   escripción brev e      d e  lx si      m       x      u     l a  v    v xxxxxxxxxxxxxxxx          dor implementado
 
-La práctica implementa  t re sv mó
-dxxxxxxxxxxxxxx     ulos     xxxxxx   ind e     p  e        x                      n
- dx           x   ientes que demuestran el  m anejo de operaciones 
- asíncronas en JavaScript. El primero es un simulador de carga de recursos que compara el rendimiento entre peticione
- 
- 
- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xs    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    ejecutadas de    f xxxxxxxxxxx o x     x r  x                ma secuencial y paralela, usando `async/await` y `Promise.all` respectivamente. El segundo es un te
- xm           xpo    x            xri z x            ador re  g resivo construido con `setInte  rvv a  l  x  ` q  u e    ac t
-  ualiza x   x   el    xxxxxxxxxxxx   d ix   splay y la barra d  e pr       o   gre s o ca d    a                          v                  seg  u   ndo. El    tercero es         un módulo de manejo de errores que demuestra el uso de `try/catch` y una estr a te g  ia   de reintent     o   s    con backoff exponencial.
+---
+
+## 1. Descripción breve del simulador implementado
+
+La práctica implementa tres módulos independientes que demuestran el manejo de operaciones asíncronas en JavaScript. El primero es un simulador de carga de recursos que compara el rendimiento entre peticiones ejecutadas de forma secuencial y paralela, usando `async/await` y `Promise.all` respectivamente. El segundo es un temporizador regresivo construido con `setInterval` que actualiza el display y la barra de progreso cada segundo. El tercero es un módulo de manejo de errores que demuestra el uso de `try/catch` y una estrategia de reintentos con backoff exponencial.
 
 ---
 
@@ -70,26 +58,19 @@ async function cargarSecuencial() {
     tiempoSecuencial = total;
     mostrarComparativa();
 }
+```
 
-zx 
- 
+### 2.3 Carga paralela con Promise.all
 
- #  2    a  a  ar l l  c n  P  om se.a l
-     
- a  t    p om  a    se c  e nx x    mo txe  m
- x  x  y  e esperan juntas con `Promise.all`. El tiempo total equivale al delay más largo de los tres, no a la suma de todos.
+Las tres promesas se crean al mismo tiempo y se esperan juntas con `Promise.all`. El tiempo total equivale al delay más largo de los tres, no a la suma de todos.
 
+```javascript
+async function cargarParalelo() {
+    const inicio = performance.now();
 
-x`   v script
-async 
-x nc ion cargarParalelo() {
-    co st inicio = performance.now();
-
-
- x   on    r me   a     [  
-          i u arP t  iov( Uvua io', 500, 1000),
-        simularPeticion('Posts',
-        xxxxxxxxxx) zz
+    const promesas = [
+        simularPeticion('Usuario', 500, 1000),
+        simularPeticion('Posts', 700, 1500),
         simularPeticion('Comentarios', 600, 1200)
     ];
 
@@ -111,105 +92,65 @@ Se llama a `simularPeticion` con el parámetro `fallar = true` para forzar el re
 
 ```javascript
 async function simularError() {
-   r      
-    aw it si   a   Pvticion  A   I', 500, 1000, true);
-    mostrarLogError('✓ Operación e
-    xitosa', 'success');
-  } 
-  xxxxxxxx ror) {
-    v s   r og  r r(  `     r r  ap u  do  ${ vr o .me svgv}  v'  rv ' ;             
-x   mx      r  gE 
-xo  r x ℹ️ E    ro rv  f e  an j a o   c r     c am nte      on tr  /v t  h'   ' n ov) v   v
-  }     
+  try {
+    await simularPeticion('API', 500, 1000, true);
+    mostrarLogError('✓ Operación exitosa', 'success');
+  } catch (error) {
+    mostrarLogError(`❌ Error capturado: ${error.message}`, 'error');
+    mostrarLogError('ℹ️ El error fue manejado correctamente con try/catch', 'info');
+  }
 }
-``
-x 
- x 
-##   .  T vp viz            etInterval   
-v
-     temporizador usa ` s t I tx v  xl  vv     c e    a       em              d
-     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxt  n    t mát c me  tv  c    c lvavvv e   v  `  xmues
-    
-    
-    xxa  na a          su a io 
-   v 
-  ` ` av   s  cvi   
-in 
-xxxxxxxxxx   setInterval(() => {
+```
+
+### 2.5 Temporizador con setInterval
+
+El temporizador usa `setInterval` para decrementar el tiempo restante cada segundo. Cuando llega a cero se detiene automáticamente con `clearInterval` y muestra una alerta al usuario.
+
+```javascript
+intervaloId = setInterval(() => {
     tiempoRestante--;
-    actualiz   i p  l y )  
+    actualizarDisplay();
 
-  v  if (tiempoRestante <= 0) {
+    if (tiempoRestante <= 0) {
         detener();
-        disp a  . lvs Li t.a d( ale     v   
-    v
-      
-      a
-      
-      xxxx
-      t( ⏰ ¡ i vpo tvr  xn  do!' ;
-     
-v, 10 0)  
- ` 
- 
-- - 
- 
-        v v i    v   diferencia 
-        xn  xe c r   se uen  vl     xar x ela
- 
- a  arva     s cu ncval e ecuta cada  v iv       er n       l  vvvvvio   e  i        lo que el tiempo total es la suma de los tres delays individuales. En cambio, la carga paralela lanza las tres promesas al mismo tiempo y espera a que todas terminen con `Promise.all`, siendo el tiempo total equivalente únicamente al delay más largo de las tres peticiones.
+        display.classList.add('alerta');
+        alert('⏰ ¡Tiempo terminado!');
+    }
+}, 1000);
+```
 
+---
 
+## 3. Análisis de la diferencia entre carga secuencial y paralela
 
-
+La carga secuencial ejecuta cada petición esperando que la anterior termine, por lo que el tiempo total es la suma de los tres delays individuales. En cambio, la carga paralela lanza las tres promesas al mismo tiempo y espera a que todas terminen con `Promise.all`, siendo el tiempo total equivalente únicamente al delay más largo de las tres peticiones.
 
 En las pruebas realizadas, la carga secuencial tomó aproximadamente 2.63s mientras que la paralela completó en 1.06s, lo que representa una mejora del 59.8%. Esta diferencia se vuelve más significativa mientras mayor sea el número de peticiones independientes entre sí.
 
-zz-
-azz
-## 4. Capturas de la Apliczzzzzzzz
+---
 
-### 1. Estructurazzzzzproyecto
-![Estructura](./assets/01-estructura.jpeg)
+## 4. Capturas de la Aplicación
+
+### 1. Estructura del proyecto
+![Estructura](./assets/01_estructura.jpeg)
 
 ### 2. Carga secuencial
-![Carga Secuencial](./assets/02-carga_secuencial.jpeg)
+![Carga Secuencial](./assets/02_carga_secuencial.jpeg)
 
 ### 3. Carga paralela
-![Carga Paralela](./assets/03-carga_paralelo.jpeg)
+![Carga Paralela](./assets/03_carga_paralelo.jpeg)
 
 ### 4. Comparativa de tiempos
-![Comparativa](./assets/04-comparativa.jpeg)
+![Comparativa](./assets/04_comparativa.jpeg)
 
 ### 5. Temporizador funcionando
-![Temporizador](./assets/05-temporizador.jpeg)
+![Temporizador](./assets/05_temporizador.jpeg)
 
-### 6. Mznejo de errores
-![Errores
+### 6. Manejo de errores
+![Errores](./assets/06_errores.jpeg)
 
-](./azzets/06-errores.jpeg)
-
-#z
-}zzzzzonsola limpia
-
-![Consola](./assets/07-consola_limpia.jpeg)
-
+### 7. Consola limpia
+![Consola](./assets/07_consola_limpia.jpeg)
 
 ### 8. Funciones async/await y Promise.all
-![Fx c  n         /assets/08-funciones_promise.jpeg)
-zz
-
-
-
-
-
-
-zzxx                
-xx            
-xxxxxxxx  x  
-xxxxxxxxxxxxxxxxxxxxxxxxxxx            v               
-x           
-x                        x                   
- 
-
-
+![Funciones](./assets/08_funciones_promise.jpeg)
