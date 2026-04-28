@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica 08 - Formularios y Validación</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1 class="header__title">Formulario de Registro</h1>
+      <p class="header__subtitle">Práctica 08 — Formularios y Validación</p>
+    </header>
+    <main class="main">
+      <div id="mensaje-exito" class="mensaje-exito oculto"></div>
+      <form id="form-registro" class="form" novalidate>
+        <div class="campo-grupo">
+          <label class="campo-label" for="nombre">Nombre completo <span class="requerido">*</span></label>
+        <input class="campo-input" type="text" id="nombre" name="nombre" placeholder="Ej: David Sisa" required minlength="3" maxlength="50" autocomplete="off">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label" for="email">Correo electrónico <span class="requerido">*</span></label>
+        <input class="campo-input" type="email" id="email" name="email" placeholder="ejemplo@correo.com" required autocomplete="off">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label" for="telefono">Teléfono <span class="requerido">*</span></label>
+          <input class="campo-input" type="tel" id="telefono" name="telefono" placeholder="(099) 999-9999" required autocomplete="off">
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label" for="fecha_nacimiento">Fecha de nacimiento <span class="requerido">*</span></label>
+          <input class="campo-input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label" for="genero">Género <span class="requerido">*</span></label>
+          <select class="campo-input campo-select" id="genero" name="genero" required>
+            <option value="">Seleccionar...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Prefiero no decir</option>
+          </select>
+        </div>
+        <div class="campo-grupo">
+          <label class="campo-label" for="password">Contraseña <span class="requerido">*</span></label>
+          <input class="campo-input" type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required minlength="8" autocomplete="new-password">
+          <div id="password-strength" class="password-strength"></div>
+          <p class="campo-ayuda">Debe tener mayúscula, minúscula y número.</p>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label" for="confirmar">Confirmar contraseña <span class="requerido">*</span></label>
+          <input class="campo-input" type="password" id="confirmar" name="confirmar_password" placeholder="Repite tu contraseña" required autocomplete="new-password">
+        </div>
+
+        <div class="campo-grupo campo-grupo--checkbox">
+          <label class="campo-label--checkbox">
+            <input class="campo-checkbox" type="checkbox" id="terminos" name="terminos" required>
+            <span>Acepto los <a href="#" class="link">términos y condiciones</a> <span class="requerido">*</span></span>
+          </label>
+        </div>
+
+        <button type="submit" id="btn-enviar" class="btn-enviar" disabled>
+          Registrarse
+        </button>
+
+        <p class="form__nota"><span class="requerido">*</span> Campos obligatorios</p>
+      </form>
+    </main>
+  </div>
+  <script src="js/validacion.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

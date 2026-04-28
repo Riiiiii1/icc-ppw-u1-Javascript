@@ -1,0 +1,214 @@
+:root {
+  --bg: #f5f7ff;
+  --card: #ffffff;
+  --primary: #155dfc;
+  --primary-dark: #0044cc;
+  --success: #16a34a;
+  --error: #dc2626;
+  --warning: #d97706;
+  --text: #1a1a2e;
+  --text-soft: #64748b;
+  --border: #e2e8f0;
+  --border-focus: #155dfc;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(21, 93, 252, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px 64px;
+}
+
+.page {
+  width: 100%;
+  max-width: 520px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header__title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+}
+
+.header__subtitle {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+.main {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  padding: 32px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.campo-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.requerido {
+  color: var(--error);
+}
+
+.campo-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--text);
+  background: #fafbff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(21, 93, 252, 0.1);
+  background: #fff;
+}
+
+.campo-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.campo-ayuda {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-top: 2px;
+}
+
+.campo-grupo--checkbox {
+  margin-bottom: 20px;
+}
+
+.campo-label--checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.campo-checkbox {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.campo--error {
+  border-color: var(--error) !important;
+  background: #fff5f5 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08) !important;
+}
+
+.campo--valido {
+  border-color: var(--success) !important;
+  background: #f0fdf4 !important;
+}
+
+.error-mensaje {
+  font-size: 0.8rem;
+  color: var(--error);
+  font-weight: 500;
+  min-height: 1.1em;
+  margin-top: 2px;
+}
+
+.password-strength {
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-height: 1.1em;
+  margin-top: 2px;
+  transition: color 0.2s;
+}
+
+.btn-enviar {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, opacity 0.2s;
+  margin-top: 4px;
+}
+
+.btn-enviar:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.btn-enviar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.form__nota {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin-top: 14px;
+}
+
+.mensaje-exito {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  color: var(--success);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.oculto {
+  display: none;
+}
