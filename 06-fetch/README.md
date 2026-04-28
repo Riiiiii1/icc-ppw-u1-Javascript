@@ -1,16 +1,7 @@
 # Práctica 06 - Fetch API y Consumo de Servicios
 
-## Información del Estudiante
 
-| Campo    | Detalle                        |
-|----------|--------------------------------|
-| Nombre   | David Esteban Sisa Buestan     |
-| Carrera  | Ingeniería en Sistemas         |
-| Semestre | 5° semestre                    |
-
----
-
-## 1. Descripción breve de la solución
+## 1. Descripción 
 
 La práctica implementa un gestor de posts completo que consume la API REST de JSONPlaceholder usando Fetch API nativa del navegador. La aplicación está dividida en tres módulos: `apiService.js` que centraliza todas las peticiones HTTP, `components.js` que construye los elementos del DOM usando `createElement` y `textContent` sin usar `innerHTML` para datos dinámicos, y `app.js` que gestiona el estado, los eventos y la lógica principal.
 
@@ -18,7 +9,7 @@ Se implementaron las cuatro operaciones CRUD: GET para cargar posts, POST para c
 
 ---
 
-## 2. Fragmentos de código relevantes
+## 2. Fragmentos de código 
 
 ### 2.1 Función que retorna promesa con fetch
 

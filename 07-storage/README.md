@@ -1,10 +1,10 @@
 # Práctica 07 - Web Storage y Persistencia
 
-## Información del Estudiante
+
 
 ---
 
-## 1. Descripción breve de la solución
+## 1. Descripción 
 
 La práctica implementa una lista de tareas persistente usando Web Storage del navegador. La aplicación está dividida en dos módulos: `storage.js` que centraliza todas las operaciones de `localStorage` a través de dos servicios, `TareaStorage` para el CRUD de tareas y `TemaStorage` para la preferencia de tema, y `app.js` que gestiona el DOM, los eventos y la lógica de la interfaz.
 
@@ -12,7 +12,7 @@ Toda la construcción del DOM se realiza con `createElement` y `textContent` sin
 
 ---
 
-## 2. Fragmentos de código relevantes
+## 2. Fragmentos de código 
 
 ### 2.1 Servicio de Storage con patrón CRUD
 
